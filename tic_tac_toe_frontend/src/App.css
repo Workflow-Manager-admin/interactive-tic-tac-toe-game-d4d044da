@@ -1,0 +1,178 @@
+:root {
+  --primary: #1976d2;
+  --accent: #ff9800;
+  --secondary: #ffffff;
+  --border-color: #e7eaf3;
+}
+
+body, html {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+.App {
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+.ttt-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 340px;
+  margin: 0 auto;
+  padding: 32px 18px 24px 18px;
+  background: var(--secondary);
+  border-radius: 18px;
+  box-shadow: 0 2px 20px 0 rgba(25, 118, 210, 0.08), 0 1.5px 3.5px 0 rgba(0,0,0,0.09);
+}
+
+.ttt-title {
+  margin: 0 0 1.7rem 0;
+  font-size: 2rem;
+  letter-spacing: 0.09em;
+}
+
+.ttt-scoreboard {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 0.3rem;
+  gap: 8px;
+}
+
+.ttt-score {
+  font-size: 1.1rem;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: #f4f7fa;
+  min-width: 46px;
+  text-align: center;
+  color: var(--primary);
+  font-variant-numeric: tabular-nums;
+}
+
+.ttt-score-x {
+  border: 2px solid var(--primary);
+}
+
+.ttt-score-o {
+  border: 2px solid var(--accent);
+}
+
+.ttt-score-num {
+  font-family: inherit;
+  padding-left: 1.5px;
+  color: #444;
+}
+
+.ttt-status {
+  font-size: 1.11rem;
+  font-weight: 550;
+  min-height: 1.5rem;
+}
+
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 70px);
+  grid-template-rows: repeat(3, 70px);
+  gap: 10px;
+  margin-bottom: 12px;
+  margin-top: 10px;
+}
+
+.ttt-square {
+  width: 70px;
+  height: 70px;
+  background: var(--secondary);
+  border: 2.5px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: background 0.13s, box-shadow 0.17s;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1.5px 5px 0 rgba(0,0,0,0.03);
+  user-select: none;
+}
+.ttt-square:focus, .ttt-square:hover {
+  border-color: var(--accent);
+  background: #fff7ed;
+}
+.ttt-square[aria-label="Empty square"]:hover {
+  background: #f5fbff;
+}
+.ttt-square[aria-label="Empty square"] {
+  color: #bbb;
+  cursor: pointer;
+}
+
+.ttt-btn, .ttt-btn-outline {
+  font-size: 1rem;
+  padding: 8px 22px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.18s, color 0.19s, border 0.19s;
+  background: var(--primary);
+  color: #fff;
+  margin: 0 2px;
+  outline: none;
+  box-shadow: 0 1.5px 4px rgba(25, 118, 210, 0.08);
+}
+.ttt-btn:hover, .ttt-btn:focus {
+  background: #1452a8;
+}
+
+.ttt-btn-outline {
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+.ttt-btn-outline:hover, .ttt-btn-outline:focus {
+  background: var(--primary);
+  color: #fff;
+}
+
+.ttt-footer {
+  margin-top: 2rem;
+  color: #bbb;
+  font-size: 0.95rem;
+  text-align: center;
+  user-select: none;
+}
+
+/* Responsive: Mobile */
+@media (max-width: 600px) {
+  .ttt-container {
+    max-width: 98vw;
+    padding: 16px 4vw 12px 4vw;
+  }
+  .ttt-board {
+    grid-template-columns: repeat(3, 48px);
+    grid-template-rows: repeat(3, 48px);
+    gap: 6.5px;
+  }
+  .ttt-square {
+    width: 48px;
+    height: 48px;
+    font-size: 1.31rem;
+  }
+  .ttt-title { font-size: 1.2rem; }
+  .ttt-btn, .ttt-btn-outline {
+    font-size: 0.95rem;
+    padding: 7px 9px;
+  }
+}
+
+@media (max-width: 380px) {
+  .ttt-board { grid-template-columns: repeat(3, 37px); grid-template-rows: repeat(3, 37px);}
+  .ttt-square { width: 37px; height: 37px; font-size: 1rem;}
+}
